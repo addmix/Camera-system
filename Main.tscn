@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Camera.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = SubResource( 2 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+script = ExtResource( 1 )
+camera_sensitivity = Vector2( 0.3, 0.3 )
+
+[node name="Props" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.13626, 0 )
+width = 25.0
+depth = 25.0
+material = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65163, 2.01445, -3.95564 )
+
+[node name="CSGBox2" type="CSGBox" parent="Props"]
+transform = Transform( 0.407757, 0, 0.913091, 0, 1, 0, -0.913091, 0, 0.407757, -5.67019, 2.01445, -6.60023 )
+
+[node name="CSGBox4" type="CSGBox" parent="Props"]
+transform = Transform( -0.587362, 0, 0.809325, 0, 1, 0, -0.809325, 0, -0.587362, 7.80339, 2.28628, 6.99464 )
+width = 3.34647
+height = 2.79396
+depth = 8.72177
+
+[node name="CSGBox3" type="CSGBox" parent="Props"]
+transform = Transform( 0.216218, 0, 0.976345, 0, 1, 0, -0.976345, 0, 0.216218, -6.69315, 3.99509, -5.02887 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.818802, 0.574077, 0, -0.574077, -0.818802, 0, 7.99007, 0 )
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.713342, 0 )
+radius = 0.1
